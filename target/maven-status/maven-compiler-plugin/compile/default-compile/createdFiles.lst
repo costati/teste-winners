@@ -1,0 +1,14 @@
+br\com\apiteste\domain\service\StudioService.class
+br\com\apiteste\domain\repository\MovieRepository.class
+br\com\apiteste\Application.class
+br\com\apiteste\conguration\LiquibaseConfiguration.class
+br\com\apiteste\domain\entity\Producer.class
+br\com\apiteste\domain\service\ProducerService.class
+br\com\apiteste\domain\entity\Studio.class
+br\com\apiteste\domain\repository\StudioRepository.class
+br\com\apiteste\conguration\JpaConfiguration.class
+br\com\apiteste\domain\service\ServiceInterface.class
+br\com\apiteste\domain\service\ServiceAbstract.class
+br\com\apiteste\inicliazador\Inicializador.class
+br\com\apiteste\domain\entity\Movie.class
+br\com\apiteste\domain\repository\ProducerRepository.class

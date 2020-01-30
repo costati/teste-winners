@@ -1,0 +1,82 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <!--TABELA PRODUCER-->
+    <changeSet author="felipe.costa" id="create-table-PRODUCER">
+        <createTable tableName="PRODUCER">
+            <column autoIncrement="${autoIncrement}" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRODUCER"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--TABELA STUDIO-->
+    <changeSet author="felipe.costa" id="create-table-STUDIO">
+        <createTable tableName="STUDIO">
+            <column autoIncrement="${autoIncrement}" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_STUDIO"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--TABELA MOVIE-->
+    <changeSet author="felipe.costa" id="create-table-MOVIE">
+        <createTable tableName="MOVIE">
+            <column autoIncrement="${autoIncrement}" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MOVIE"/>
+            </column>
+            <column name="YEAR" type="INT">
+            </column>
+            <column name="TITLE" type="VARCHAR(100)">
+            </column>
+            <column name="WINNER" type="BOOLEAN">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- TABELA MOVIE_PRODUCER  -->
+    <changeSet author="felipe.costa" id="create-table-MOVIE-PRODUCER">
+        <createTable tableName="MOVIE_PRODUCER">
+            <column autoIncrement="${autoIncrement}" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MOVIE_PRODUCER"/>
+            </column>
+            <column name="MOVIE_ID" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="FK_MOVIE_PRODUCER_MOVIE_id"
+                             references="MOVIE(ID)"/>
+            </column>
+            <column name="PRODUCER_ID" type="bigint">
+                <constraints nullable="false"
+                             foreignKeyName="FK_MOVIE_PRODUCER_PRODUCER_id"
+                             references="PRODUCER(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- TABELA MOVIE_STUDIO  -->
+    <changeSet author="felipe.costa" id="create-table-MOVIE-STUDIO">
+        <createTable tableName="MOVIE_STUDIO">
+            <column autoIncrement="${autoIncrement}" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MOVIE_STUDIO"/>
+            </column>
+            <column name="MOVIE_ID" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="FK_MOVIE_STUDIO_MOVIE_id"
+                             references="MOVIE(ID)"/>
+            </column>
+            <column name="STUDIO_ID" type="bigint">
+                <constraints nullable="false"
+                             foreignKeyName="FK_MOVIE_STUDIO_STUDIO_id"
+                             references="STUDIO(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
